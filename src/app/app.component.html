@@ -1,0 +1,26 @@
+<mat-toolbar color='primary' class='navbar'>
+  <div>HR Management Portal</div>
+  <div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services</span>
+    <a mat-button routerLink="/register">Register</a>
+    <a mat-button routerLink="/login">Login</a>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode='side' (opened)="log('Opened')" (closed)="log('Closed')">Sidenav</mat-sidenav>
+  <mat-sidenav-content>
+    <button (click)="sidenav.toggle()">Toggle</button>
+    <mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+      <mat-tab label="Screening">Screening/Shorlisting</mat-tab>
+      <mat-tab label="Interviewing">Interviewing</mat-tab>
+      <mat-tab label="Evaluation">Evaluation</mat-tab>
+      <mat-tab label="Employment Offer">Offer of Employment</mat-tab>
+      <mat-tab label="Induction">Induction/Onboarding</mat-tab>
+      <mat-tab></mat-tab>
+    </mat-tab-group>
+    {{tabRef.selectedIndex}}
+  </mat-sidenav-content>
+</mat-sidenav-container>
